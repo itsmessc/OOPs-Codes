@@ -55,6 +55,7 @@ class CurrentAcc extends Account{
         if(balance<min_balance)
         {
             System.out.println("Balance is less than minimum balance, service tax charged");
+            balance-=service_tax;
         }
     }
 }
