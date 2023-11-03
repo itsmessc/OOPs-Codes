@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.sound.midi.Soundbank;
+
 public class Matrixthread {
     private int m[][];
     private int row,column;
@@ -86,25 +88,23 @@ public class Matrixthread {
         Thread t3=new Thread(()->l.maxinmat());
         Thread t4=new Thread(()->l.princ());
         Thread t5=new Thread(()->l.nprinc());
-        t1.start(); 
         if (t1.isAlive()) {
             System.out.println("Thread 1 is still running");
         }
-        Thread.sleep(100);
-        t2.start();
-        Thread.sleep(100);
-        t3.start();
-        Thread.sleep(100);
-        t4.start();
-        Thread.sleep(100);
-        t5.start();
+        else
+            System.out.println("Thread 1 is dead");
        
 
         try {
+            t1.start();
             t1.join();
+            t2.start();
             t2.join();
+            t3.start();
             t3.join();
+            t4.start();
             t4.join();
+            t5.start();
             t5.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
